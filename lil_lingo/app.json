@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "icon": "./assets/app_button.png",
     "splash": {
-      "image": "./assets/app_button.png", 
+      "image": "./assets/app_button.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -14,15 +14,21 @@
     ],
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/app_button.png", 
+        "foregroundImage": "./assets/app_button.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mattatatouille.yourappslug"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "0903c1c1-de73-49d6-b23e-9033d9e2a90b"
+      }
+    }
   }
 }

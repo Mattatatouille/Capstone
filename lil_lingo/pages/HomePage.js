@@ -2,6 +2,7 @@ import { View, Image, StyleSheet, Text, ActivityIndicator, TouchableOpacity } fr
 import React, { useEffect, useState } from "react";
 import * as Font from 'expo-font';
 import COLORS from "../constants/colors"; 
+import { useNavigation } from '@react-navigation/native'; // Import useNavigation
 
 const loadFonts = async () => {
     await Font.loadAsync({
@@ -11,6 +12,7 @@ const loadFonts = async () => {
 
 const HomePage = () => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
+    const navigation = useNavigation(); // Get navigation object
 
     useEffect(() => {
         const loadFontsAsync = async () => {
@@ -26,8 +28,8 @@ const HomePage = () => {
     }
 
     const handleButtonPress = () => {
-        // Handle button press action here
-        console.log("Button pressed!");
+        // Navigate to Signup page
+        navigation.navigate('Signup');
     };
 
     return (
@@ -47,7 +49,7 @@ const HomePage = () => {
             </View>
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {
@@ -65,8 +67,8 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     textContainer: {
-        alignItems: 'center', // Center the text horizontally
-        marginTop: 20, // Add some space above the text
+        alignItems: 'center',
+        marginTop: 20,
         paddingHorizontal: 22,
     },
     welcomeText: {
@@ -75,7 +77,7 @@ const styles = StyleSheet.create({
         fontFamily: 'josefin-sans',
         color: COLORS.white, 
         width: "100%",
-        textAlign: 'center', // Center align text
+        textAlign: 'center',
     },
     gladToSeeYouText: {
         fontSize: 15,
@@ -83,8 +85,8 @@ const styles = StyleSheet.create({
         fontFamily: 'josefin-sans',
         color: COLORS.white, 
         width: "100%",
-        textAlign: 'center', // Center align text
-        paddingTop: 10, // Add some space between texts
+        textAlign: 'center',
+        paddingTop: 10,
     },
     loading: {
         flex: 1,
