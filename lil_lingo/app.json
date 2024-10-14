@@ -3,9 +3,9 @@
     "name": "Lil'Lingo",
     "slug": "your-app-slug",
     "version": "1.0.0",
-    "icon": "./assets/app_button.png",
+    "icon": "./assets/app_button.jpg",
     "splash": {
-      "image": "./assets/app_button.png",
+      "image": "./assets/app_button.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -13,8 +13,9 @@
       "**/*"
     ],
     "android": {
+      "package": "com.mattattouille.LilLingo",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/app_button.png",
+        "foregroundImage": "./assets/app_button.jpg",
         "backgroundColor": "#FFFFFF"
       }
     },

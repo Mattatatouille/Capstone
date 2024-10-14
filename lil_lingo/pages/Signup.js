@@ -1,7 +1,6 @@
-// pages/Signup.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image } from 'react-native';
-import { auth } from '../firebaseConfig'; // Adjust this import if needed
+import { auth } from '../firebaseConfig'; 
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import COLORS from '../constants/colors';
 
@@ -19,7 +18,7 @@ const Signup = ({ navigation }) => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
             Alert.alert("Signup Successful", "Welcome!");
-            navigation.navigate('HomePage'); // Navigate to Home after successful signup
+            navigation.navigate('HomePage');
         } catch (error) {
             Alert.alert("Signup Error", error.message);
         }
@@ -28,7 +27,7 @@ const Signup = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Image 
-                source={require('../assets/logo_tran.png')} // Adjust the path as necessary
+                source={require('../assets/logo_tran.png')}
                 style={styles.logo} 
                 resizeMode="contain"
             />
@@ -79,8 +78,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
     },
     logo: {
-        width: 200, // Adjust width as needed
-        height: 200, // Adjust height as needed
+        width: 200,
+        height: 200,
         alignSelf: 'center',
         marginBottom: 20,
     },
@@ -99,7 +98,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         paddingHorizontal: 10,
         backgroundColor: COLORS.white,
-        color: COLORS.black, // Changed to black for visibility
+        color: COLORS.black,
     },
     button: {
         backgroundColor: COLORS.white,

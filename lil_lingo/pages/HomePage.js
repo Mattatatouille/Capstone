@@ -2,17 +2,17 @@ import { View, Image, StyleSheet, Text, ActivityIndicator, TouchableOpacity } fr
 import React, { useEffect, useState } from "react";
 import * as Font from 'expo-font';
 import COLORS from "../constants/colors"; 
-import { useNavigation } from '@react-navigation/native'; // Import useNavigation
+import { useNavigation } from '@react-navigation/native';
 
 const loadFonts = async () => {
     await Font.loadAsync({
-        'josefin-sans': require('../assets/fonts/josefin-sans/JosefinSans-Bold.ttf'), // Updated path
+        'josefin-sans': require('../assets/fonts/josefin-sans/JosefinSans-Bold.ttf'),
     });
 };
 
 const HomePage = () => {
     const [fontsLoaded, setFontsLoaded] = useState(false);
-    const navigation = useNavigation(); // Get navigation object
+    const navigation = useNavigation();
 
     useEffect(() => {
         const loadFontsAsync = async () => {

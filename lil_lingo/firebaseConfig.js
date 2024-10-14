@@ -1,14 +1,13 @@
-// firebaseConfig.js
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBNz3KS6CFL67COGM4GxIoiTQkh6YM5-p0",
-    authDomain: "lillingo-c0db1.firebaseapp.com",
-    projectId: "lillingo-c0db1",
-    storageBucket: "lillingo-c0db1.appspot.com",
-    messagingSenderId: "750716756004",
-    appId: "1:750716756004:ios:c1c18f62efd2e35897b8b1",
+    apiKey: "AIzaSyCYAgINR2Y3SYpGA7kDBvg6EbQy1WTsJ3g",
+    authDomain: "lillingo-8a858.firebaseapp.com",
+    projectId: "lillingo-8a858",
+    storageBucket: "lillingo-8a858.appspot.com",
+    messagingSenderId: "1042796883709",
+    appId: "1:1042796883709:ios:17a3747428a63ee1bbd894",
 };
 
 const app = initializeApp(firebaseConfig);

@@ -1,7 +1,7 @@
 // pages/Login.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image } from 'react-native';
-import { auth } from '../firebaseConfig'; // Adjust the path if necessary
+import { auth } from '../firebaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import COLORS from '../constants/colors';
 
@@ -13,7 +13,7 @@ const Login = ({ navigation }) => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             Alert.alert("Login Successful", "Welcome back!");
-            navigation.navigate('HomePage'); // Navigate to Home after successful login
+            navigation.navigate('Page01');
         } catch (error) {
             Alert.alert("Login Error", error.message);
         }
@@ -22,7 +22,7 @@ const Login = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Image 
-                source={require('../assets/logo_tran.png')} // Adjust the path as necessary
+                source={require('../assets/logo_tran.png')}
                 style={styles.logo} 
                 resizeMode="contain"
             />
@@ -49,7 +49,7 @@ const Login = ({ navigation }) => {
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Log In</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Page01')}>
                 <Text style={styles.switchText}>Don't have an account? Sign Up</Text>
             </TouchableOpacity>
         </View>
@@ -64,8 +64,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.primary,
     },
     logo: {
-        width: 200, // Adjust width as needed
-        height: 200, // Adjust height as needed
+        width: 200,
+        height: 200,
         alignSelf: 'center',
         marginBottom: 20,
     },
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         marginBottom: 15,
         paddingHorizontal: 10,
-        color: COLORS.black, // Changed to black for visibility
+        color: COLORS.black,
         backgroundColor: COLORS.white,
     },
     button: {
