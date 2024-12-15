@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Lil'Lingo",
-    "slug": "your-app-slug",
+    "slug": "Lil'Lingo",
     "version": "1.0.0",
     "icon": "./assets/app_button.jpg",
     "splash": {
@@ -21,7 +21,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.mattatatouille.yourappslug"
+      "bundleIdentifier": "com.mattatatouille.LilLingo"
     },
     "plugins": [
       "expo-font"

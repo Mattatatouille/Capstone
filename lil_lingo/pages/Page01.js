@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native"; 
 import { TouchableOpacity, GestureHandlerRootView } from "react-native-gesture-handler";
-import COLORS from "../constants/colors"; 
+import DrawingApp from "../components/DrawingSquare"; // Import DrawingApp component
+import COLORS from "../constants/colors";
+import { Svg, Polyline } from 'react-native-svg';
+
 
 const Page01 = () => {
     const [chosenWord, setChosenWord] = useState("Performance");
     const [selectedLetters, setSelectedLetters] = useState(new Set());
     const [gameOver, setGameOver] = useState(false);
+    const [showDrawingArea, setShowDrawingArea] = useState(false); // State to control the visibility of the drawing area
 
     const handleLetterPress = (letter) => {
         if (chosenWord.toLowerCase().includes(letter)) {
@@ -27,7 +31,7 @@ const Page01 = () => {
                 onPress={() => handleLetterPress(letter)}
                 disabled={gameOver}
             >
-                <Text style={{ color:'purple' }}>{letter}</Text>
+                <Text style={{ color: COLORS.black }}>{letter}</Text>
             </TouchableOpacity>
         ));
     };
@@ -46,6 +50,24 @@ const Page01 = () => {
                 <View style={styles.buttonContainer}>
                     {renderButtons()}
                 </View>
+                <View style={styles.attemps}>
+                    <Text>Attempts Left: </Text>
+                </View>
+
+                {/* Conditionally render the DrawingApp component */}
+                {showDrawingArea && (
+                    <View style={styles.drawingContainer}>
+                        <DrawingApp />
+                    </View>
+                )}
+
+                {/* Toggle button for showing the drawing area */}
+                <TouchableOpacity 
+                    style={styles.toggleDrawingButton} 
+                    onPress={() => setShowDrawingArea(!showDrawingArea)}
+                >
+                    <Text style={styles.buttonText}>Toggle Drawing Area</Text>
+                </TouchableOpacity>
             </View>
         </GestureHandlerRootView>
     );
@@ -80,6 +102,7 @@ const styles = StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'center',
         marginTop: 20,
+        paddingBottom: 20, 
     },
     button: {
         backgroundColor: 'white',
@@ -89,10 +112,30 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     selectedButton: {
-        backgroundColor: COLORS.grey,
+        fontWeight: 'bold',
+        backgroundColor: COLORS.textColor,
     },
     disabledButton: {
         backgroundColor: COLORS.black,
+    },
+    attemps: {
+        fontSize: 12,
+        backgroundColor: COLORS.white,
+    },
+    drawingContainer: {
+        marginTop: 30,
+        width: '100%',
+        alignItems: 'center',
+    },
+    toggleDrawingButton: {
+        padding: 10,
+        backgroundColor: COLORS.primary,
+        marginTop: 20,
+        borderRadius: 5,
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 16,
     },
 });
 
